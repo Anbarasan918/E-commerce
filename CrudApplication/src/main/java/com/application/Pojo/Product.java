@@ -11,6 +11,8 @@ public class Product {
 	private Number inventory;
 	
 	private int category;
+	
+	private String category_Description;
 
 	public int getId() {
 		return id;
@@ -50,5 +52,13 @@ public class Product {
 
 	public void setCategory(int categpory) {
 		this.category = categpory;
+	}
+	
+	public String getCategory_Description() {
+		return category_Description;
+	}
+
+	public void setCategory_Description(String category_Description) {
+		this.category_Description = category_Description;
 	}
 }
