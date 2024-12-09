@@ -1,14 +1,24 @@
 package com.application.Pojo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="ak_product")
 public class Product {
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private String product_name;
 	
 	private String brand;
 	
-	private Number inventory;
+	private int inventory;
 	
 	private int category;
 	
@@ -38,11 +48,11 @@ public class Product {
 		this.brand = brand;
 	}
 
-	public Number getInventory() {
+	public int getInventory() {
 		return inventory;
 	}
 
-	public void setInventory(Number inventory) {
+	public void setInventory(int inventory) {
 		this.inventory = inventory;
 	}
 

@@ -1,33 +1,56 @@
 package com.application.Pojo;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "user",
+		indexes = {@Index(columnList = "mobile_number", unique = true, name = "phone_number"),
+		@Index(columnList = "email_id", unique = true, name = "email_address")}
+)
 public class UserData {
 	
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
+	private long id;
 
+	@Column(name="user_id")
 	private Number user_id;
 	
+	@Column(name="name")
 	private String Name;
 
+	@Column(name="email_id")
 	private String email_id;
 
+	@Column(name="mobile_number")
 	private String mobile_number;
 
 	private String newPassword;
 
 	private String confirmPassword;
 
+	@Column(name="password")
 	private String password;
 	
+	@Column(name="gender")
 	private String gender;
 	
+	@Column(name="age")
 	private Number age;
 	
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
