@@ -9,7 +9,7 @@ import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "user",
+@Table(name = "ak_user_registration",
 		indexes = {@Index(columnList = "mobile_number", unique = true, name = "phone_number"),
 		@Index(columnList = "email_id", unique = true, name = "email_address")}
 )

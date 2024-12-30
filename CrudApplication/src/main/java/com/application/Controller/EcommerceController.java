@@ -23,7 +23,7 @@ import com.application.Pojo.Category;
 import com.application.Pojo.Product;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/product")
 public class EcommerceController {
 	
 	@Autowired

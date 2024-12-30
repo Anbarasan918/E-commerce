@@ -20,7 +20,7 @@ public class Product {
 	
 	private int inventory;
 	
-	private int category;
+	private Long category;
 	
 	private String category_Description;
 
@@ -40,6 +40,14 @@ public class Product {
 		this.product_name = product_name;
 	}
 
+	public Long getCategory() {
+		return category;
+	}
+
+	public void setCategory(Long category) {
+		this.category = category;
+	}
+
 	public String getBrand() {
 		return brand;
 	}
@@ -56,13 +64,6 @@ public class Product {
 		this.inventory = inventory;
 	}
 
-	public int getCategory() {
-		return category;
-	}
-
-	public void setCategory(int categpory) {
-		this.category = categpory;
-	}
 	
 	public String getCategory_Description() {
 		return category_Description;
