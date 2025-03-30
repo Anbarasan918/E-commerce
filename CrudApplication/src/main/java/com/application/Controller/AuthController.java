@@ -9,12 +9,12 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.application.Pojo.LoginCredentials;
 import com.application.Pojo.User;
 import com.application.Pojo.UserData;
 import com.application.Repository.UserDataRepo;
@@ -114,4 +114,5 @@ public class AuthController {
 		 
 		return newPassword.equals(confirmPassword);
 	}
+	
 }

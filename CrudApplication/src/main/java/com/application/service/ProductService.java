@@ -17,13 +17,13 @@ import com.application.Repository.ProductRepository;
 public class ProductService {
 
 	@Autowired
-	private ProductRepository ProductRepository;
+	private ProductRepository productRepository;
 
 	public HashMap<String, Object> productSave(Product request) {
 
 		HashMap<String, Object> productDetails = new HashMap<String, Object>();
 		try {
-			ProductRepository.save(request);
+			productRepository.save(request);
 			productDetails.put("Status", "SUCCESS");
 			productDetails.put("Message", "Data received and saved successfully");
 
@@ -41,7 +41,7 @@ public class ProductService {
 
 		List<Product> details = new ArrayList<>();
 		try {
-			details = ProductRepository.findAll();
+			details = productRepository.findAll();
 		} catch (Exception e) {
 			System.out.println("Error at retrieveProducts  --> " + e.getMessage());
 		}
@@ -51,7 +51,7 @@ public class ProductService {
 	public Optional<Product> getProductDetailsById(Long id) {
 		Optional<Product> response = Optional.empty();
 		try {
-			response = ProductRepository.findById(id);
+			response = productRepository.findById(id);
 		} catch (Exception e) {
 			System.out.println("error at getCatagoryDetailsById " + e.getMessage());
 		}
@@ -62,7 +62,7 @@ public HashMap<String, Object> deleteProduct(Long id) {
 		
 		HashMap<String, Object> deleteCategoriesList = new HashMap<String, Object>();
 		try {
-			ProductRepository.deleteById(id);
+			productRepository.deleteById(id);
 			deleteCategoriesList.put("Status", "SUCCESS");
 			deleteCategoriesList.put("Message", "Data deleted successfully");
 		} catch(Exception e) {

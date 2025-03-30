@@ -17,6 +17,9 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+
 
 
 @Component
@@ -46,4 +49,17 @@ public class JWTUtil {
 		}
 		return jwtVerifier.getClaim("email").asString();
 	}
+	
+	
+	public static String getJwtTokenFromCookies(HttpServletRequest request, String cookieName) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals(cookieName)) {
+                    return cookie.getValue(); // Return the JWT token
+                }
+            }
+        }
+        return null; // Return null if token is not found
+    }
 }
