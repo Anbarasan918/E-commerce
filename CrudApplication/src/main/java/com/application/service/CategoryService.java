@@ -9,8 +9,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.application.Pojo.Category;
-import com.application.Repository.CategoryRepository;
+import com.application.entity.Category;
+import com.application.repository.CategoryRepository;
 
 @Service
 public class CategoryService {

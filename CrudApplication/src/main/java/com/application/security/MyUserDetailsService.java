@@ -2,15 +2,16 @@ package com.application.security;
 
 import org.springframework.stereotype.Component;
 
-import com.application.Pojo.User;
-import com.application.Repository.UserRepo;
+import com.application.entity.UserData;
+import com.application.repository.UserDataRepo;
+
+import jakarta.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -18,17 +19,24 @@ import java.util.Optional;
 @Component
 public class MyUserDetailsService implements UserDetailsService {
 
-    @Autowired private UserRepo userRepo;
+    @Autowired private UserDataRepo userRepo;
 
-    @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<User> userRes = userRepo.findByEmail(email);
+        Optional<UserData> userRes = userRepo.findByEmailId(email);
         if(userRes.isEmpty())
             throw new UsernameNotFoundException("Could not findUser with email = " + email);
-        User user = userRes.get();
+        UserData user = userRes.get();
         return new org.springframework.security.core.userdetails.User(
                 email,
                 user.getPassword(),
                 Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER")));
     }
+	
+	 public Optional<UserData> getUserDetails(String email) {
+	    	Optional<UserData> userRes = userRepo.findByEmailId(email);
+	    	if(userRes.isEmpty())
+	            throw new UsernameNotFoundException("Could not findUser with email = " + email);
+
+	        return userRes;
+	    }
 }

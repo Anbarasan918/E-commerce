@@ -9,9 +9,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.application.Pojo.Category;
-import com.application.Pojo.Product;
-import com.application.Repository.ProductRepository;
+import com.application.entity.Category;
+import com.application.entity.Product;
+import com.application.repository.ProductRepository;
 
 @Service
 public class ProductService {
